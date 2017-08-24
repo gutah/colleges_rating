@@ -5,12 +5,6 @@
     <title></title>
   </head>
   <body>
-      <ul>
-        @foreach ($tasks as $task)
-
-          <li>{{ $task }}</li>
-
-        @endforeach
-      </ul>
+<h1>{{$courses->name}}</h1>
   </body>
 </html>
