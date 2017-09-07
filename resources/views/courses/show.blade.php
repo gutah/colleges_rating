@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-<h1>{{$courses->name}}</h1>
-  </body>
-</html>
+@extends('layouts.master')
+
+@section('content')
+
+    <h1 class="starter-template">{{$courses->name}}</h1>
+
+    <div class="col col-12 text-justify">
+      <p>{{$courses->description}}</p>
+    </div>
+
+@endsection

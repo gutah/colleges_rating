@@ -12,12 +12,29 @@ class CoursesController extends Controller
     $courses = Course::all();
     return view('courses.index', compact('courses'));
 
+
   }
 
   public function show($id){
 
     $courses = Course::find($id);
     return view('courses.show')->with('courses', $courses);
+
+  }
+
+  public function create(){
+    return view('courses.create');
+  }
+
+  public function store(){
+
+    Course::create([
+      'name' => request('name'),
+      'description' => request('description')
+
+    ]);
+
+    return redirect('cursos/');
 
 
   }
