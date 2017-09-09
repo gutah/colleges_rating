@@ -17,8 +17,8 @@ class CoursesController extends Controller
 
   public function show($id){
 
-    $courses = Course::find($id);
-    return view('courses.show')->with('courses', $courses);
+    $course = Course::find($id);
+    return view('courses.show',compact('course'));
 
   }
 
@@ -36,9 +36,42 @@ class CoursesController extends Controller
 
     return redirect('cursos/');
 
+  }
+
+  public function edit($id)
+  {
+      $course = Course::find($id);
+
+      //dd($course);
+      return view("courses.edit")->with('course', $course);
+  }
+
+  public function update($id)
+  {
+
+    $course = Course::find($id);
+    $course->name = request('name');
+    $course->description = request('description');
+
+    $course->save();
+
+    return redirect('/cursos');
 
   }
 
+  public function delete($id)
+  {
+    $courses = Course::find($id);
+    return view('courses.delete',compact('courses'));
+  }
 
+  public function destroy($id){
+
+    $course = Course::find($id);
+
+    $course->delete();
+    return redirect('/cursos');
+
+  }
 
 }

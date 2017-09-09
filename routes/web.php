@@ -10,8 +10,12 @@ Route::get('/cursos', 'CoursesController@index');
 Route::post('/cursos', 'CoursesController@store');
 Route::get('/cursos/create', 'CoursesController@create');
 Route::get('/cursos/{courses}', 'CoursesController@show');
+Route::get('/cursos/{courses}/delete', 'CoursesController@delete');
+Route::patch('/cursos/{courses}', 'CoursesController@update');
+Route::delete('/cursos/{courses}', 'CoursesController@destroy');
+Route::get('/cursos/{courses}/edit', 'CoursesController@edit');
 
-//Modulo de Cursos
+//Modulo de Universidades
 Route::get('/universidades', function() {return "Página de Lista de Faculdades";});
 Route::get('/universidades/{colleges}', function() {return "Página de Faculdade";});
 

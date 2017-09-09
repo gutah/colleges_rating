@@ -16,9 +16,9 @@
         </li>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    {{--<form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+    </form>--}}
   </div>
 </nav>
