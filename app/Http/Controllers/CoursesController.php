@@ -28,6 +28,11 @@ class CoursesController extends Controller
 
   public function store(){
 
+    $this->validate(request(), [
+      'name'=>'required',
+      'description'=>'required'
+    ]);
+
     Course::create([
       'name' => request('name'),
       'description' => request('description')
