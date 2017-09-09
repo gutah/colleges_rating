@@ -3,12 +3,8 @@
 @section('content')
 
   <div class="starter-template">
-
     <h1>Cursos</h1>
-    <hr>
   </div>
-
-
   <div class="card-deck">
     <div class="row">
       @foreach ($courses as $course)
@@ -22,12 +18,13 @@
           <div class="card-body">
             {{--<h4 class="card-title"><a href="/cursos/{{$course->id}}">{{$course->name}}</a></h4>--}}
             <p class="card-text">{{substr($course->description, 0, 95)}}</p>
+
             <div class="card-footer bg-dark border-dark text-right text-center">
               {{--@include('courses.coursesBtn')--}}
               <hr>
-              <a href="/cursos/{{$course->id}}" class="btn btn-outline-primary btn-lg btn-block">Ver mais</a>
-
+              <a href="/cursos/{{$course->id}}" class="btn btn-outline-info btn-lg btn-block">Ver mais</a>
             </div>
+
           </div>
         </div>
       </div>
