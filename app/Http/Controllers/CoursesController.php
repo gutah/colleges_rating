@@ -45,9 +45,9 @@ class CoursesController extends Controller
 
   }
 
-  public function edit($id)
+  public function edit(Course $course)
   {
-      $course = Course::find($id);
+      $course = Course::find($course->id);
 
       //dd($course);
       return view("courses.edit")->with('course', $course);
@@ -66,10 +66,10 @@ class CoursesController extends Controller
 
   }
 
-  public function delete($id)
+  public function delete(Course $course)
   {
-    $courses = Course::find($id);
-    return view('courses.delete',compact('courses'));
+    $course = Course::find($course->id);
+    return view('courses.delete',compact('course'));
   }
 
   public function destroy($id){

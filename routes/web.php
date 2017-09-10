@@ -10,10 +10,10 @@ Route::get('/cursos', 'CoursesController@index');
 Route::post('/cursos', 'CoursesController@store');
 Route::get('/cursos/create', 'CoursesController@create');
 Route::get('/cursos/{course}', 'CoursesController@show');
-Route::get('/cursos/{courses}/delete', 'CoursesController@delete');
+Route::get('/cursos/{course}/delete', 'CoursesController@delete');
 Route::patch('/cursos/{courses}', 'CoursesController@update');
 Route::delete('/cursos/{courses}', 'CoursesController@destroy');
-Route::get('/cursos/{courses}/edit', 'CoursesController@edit');
+Route::get('/cursos/{course}/edit', 'CoursesController@edit');
 
 //Modulo de Universidades
 Route::get('/universidades', function() {return "Página de Lista de Faculdades";});

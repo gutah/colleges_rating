@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
 
-  protected $fillable = ['name', 'description','slug'];
+protected $softDelete = true;
+  protected $guarded = [];
+
 
   public function getRouteKeyName(){
 
