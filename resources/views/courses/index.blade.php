@@ -18,11 +18,11 @@
           <div class="card-body">
             {{--<h4 class="card-title"><a href="/cursos/{{$course->id}}">{{$course->name}}</a></h4>--}}
             <p class="card-text">{{substr($course->description, 0, 95)}}</p>
-
+            <p class="card-text"><small class="text-muted">Ultima atualização {{ $course->updated_at->diffForHumans(null, true) }}</small></p>
             <div class="card-footer bg-dark border-dark text-right text-center">
               {{--@include('courses.coursesBtn')--}}
-              <hr>
-              <a href="/cursos/{{$course->id}}" class="btn btn-outline-info btn-lg btn-block">Ver mais</a>
+
+              <a href="/cursos/{{$course->name}}" class="btn btn-outline-info btn-lg btn-block">Ver mais</a>
             </div>
 
           </div>
