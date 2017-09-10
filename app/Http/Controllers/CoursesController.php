@@ -16,8 +16,9 @@ class CoursesController extends Controller
   }
 
   public function show(Course $course){
-  
+
     $course = Course::find($course->id);
+
     return view('courses.show',compact('course'));
 
   }
@@ -35,7 +36,8 @@ class CoursesController extends Controller
 
     Course::create([
       'name' => request('name'),
-      'description' => request('description')
+      'description' => request('description'),
+      'slug' => Course::setSlug(request('name'))
 
     ]);
 
@@ -57,7 +59,7 @@ class CoursesController extends Controller
     $course = Course::find($id);
     $course->name = request('name');
     $course->description = request('description');
-
+    $course->slug = Course::setSlug($course->slug);
     $course->save();
 
     return redirect('/cursos');

@@ -22,7 +22,7 @@
             <div class="card-footer bg-dark border-dark text-right text-center">
               {{--@include('courses.coursesBtn')--}}
 
-              <a href="/cursos/{{$course->name}}" class="btn btn-outline-info btn-lg btn-block">Ver mais</a>
+              <a href="/cursos/{{$course->slug}}" class="btn btn-outline-info btn-lg btn-block">Ver mais</a>
             </div>
 
           </div>
