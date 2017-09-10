@@ -9,7 +9,7 @@ Route::get('/', function () {
 Route::get('/cursos', 'CoursesController@index');
 Route::post('/cursos', 'CoursesController@store');
 Route::get('/cursos/create', 'CoursesController@create');
-Route::get('/cursos/{courses}', 'CoursesController@show');
+Route::get('/cursos/{course}', 'CoursesController@show');
 Route::get('/cursos/{courses}/delete', 'CoursesController@delete');
 Route::patch('/cursos/{courses}', 'CoursesController@update');
 Route::delete('/cursos/{courses}', 'CoursesController@destroy');
