@@ -7,14 +7,14 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/cursos">Cursos <span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item active">
         <a class="nav-link" href="/universidades">Universidades<span class="sr-only"></span></a>
         {{--<li class="nav-item active">
           <a class="nav-link" href="#">Top 20<span class="sr-only"></span></a>
         </li>--}}
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/cursos">Cursos <span class="sr-only"></span></a>
+      </li>      
     </ul>
     {{--<form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Pesquisar" aria-label="Search">
