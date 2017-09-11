@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Course;
 
 class ExampleTest extends TestCase
 {
@@ -14,10 +15,16 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
-    {
-        $response = $this->get('/');
+    public function testBasicTest(){
+      //$response = $this->get('/');
+      //$response->assertStatus(200);
 
-        $response->assertStatus(200);
+      factory(Course::class)->create();
+
+
+
+
+
+
     }
 }

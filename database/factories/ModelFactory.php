@@ -22,3 +22,22 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Course::class, function (Faker\Generator $faker) {
+    $name = $faker->name;
+    return [
+      'name' => $name,
+      'description' => $faker->text(),
+      'slug' => App\Course::setSlug($name)
+    ];
+});
+
+$factory->define(App\College::class, function (Faker\Generator $faker) {
+    $name = $faker->name;
+    return [
+      'name' => $name,
+      'description' => $faker->text(),
+      'type' =>rand(0,1),
+      'slug' => App\College::setSlug($name)
+    ];
+});
