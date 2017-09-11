@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="/">Colleges Rank</a>
+  <a class="navbar-brand" href="/">Colleges <span class="text-info">Rank</span></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,9 +11,9 @@
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="/universidades">Universidades<span class="sr-only"></span></a>
-        <li class="nav-item active">
+        {{--<li class="nav-item active">
           <a class="nav-link" href="#">Top 20<span class="sr-only"></span></a>
-        </li>
+        </li>--}}
       </li>
     </ul>
     {{--<form class="form-inline my-2 my-lg-0">

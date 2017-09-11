@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-  <div class="col col-lg-4">
+  {{--<div class="col col-lg-4">
     <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
       <div class="card-body">
         <h4 class="card-title">Top 20</h4>
@@ -36,7 +36,7 @@
         <a href="/cursos" class="btn btn-outline-info btn-lg">Top 20</a>
       </div>
     </div>
-  </div>
+  </div>--}}
 
 
 
