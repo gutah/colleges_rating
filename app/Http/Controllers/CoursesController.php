@@ -11,13 +11,11 @@ class CoursesController extends Controller
     $courses = Course::all();
     return view('courses.index', compact('courses'));
 
-
   }
 
   public function show(Course $course){
 
     $course = Course::find($course->id);
-
     return view('courses.show',compact('course'));
 
   }
@@ -40,7 +38,7 @@ class CoursesController extends Controller
 
     ]);
 
-    return redirect('cursos/');
+    return redirect('cursos/',201);
 
   }
 
