@@ -16,8 +16,14 @@ Route::delete('/cursos/{courses}', 'CoursesController@destroy');
 Route::get('/cursos/{course}/edit', 'CoursesController@edit');
 
 //Modulo de Universidades
-Route::get('/universidades', function() {return "Página de Lista de Faculdades";});
-Route::get('/universidades/{colleges}', function() {return "Página de Faculdade";});
+Route::get('/universidades', 'CollegesController@index');
+Route::post('/universidades', 'CollegesController@store');
+Route::get('/universidades/create', 'CollegesController@create');
+Route::get('/universidades/{college}', 'CollegesController@show');
+Route::get('/universidades/{college}/delete', 'CollegesController@delete');
+Route::patch('/universidades/{colleges}', 'CollegesController@update');
+Route::delete('/universidades/{colleges}', 'CollegesController@destroy');
+Route::get('/universidades/{college}/edit', 'CollegesController@edit');
 
 //Modulo de usários
 Route::get('/users', function() {return "Página de Usuários";});
