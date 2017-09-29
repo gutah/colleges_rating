@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\College;
 
 class CollegesController extends Controller
@@ -28,7 +29,9 @@ class CollegesController extends Controller
   }
 
   public function create(){
-    return view('colleges.create');
+    $courses = Course::all();
+    //dd($courses);
+    return view('colleges.create',compact('courses'));
   }
 
   public function store(){

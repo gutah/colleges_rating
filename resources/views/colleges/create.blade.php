@@ -31,9 +31,22 @@
         </label>
       </div>
 
+      {{--Listagem de cursos--}}
+      {{--
+      <div class="form-group">
+        <label class="form-control-label" for="college_id">Cursos</label>
+        <select class="" name="college_id">
+          @foreach ($courses as $course)
+            <option value="{{$course->id}}">{{$course->name}}</option>
+           @endforeach
+        </select>
+      </div>{{--End Listagem de curso--}}
+
     </div>
+    <hr>
+
     <a class="btn btn-outline-primary" href="/universidades">Voltar</a>
     <button type="submit" class="btn btn-primary">Cadastrar</button>
-  </form>
 
+  </form>
 @endsection
