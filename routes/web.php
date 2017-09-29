@@ -40,3 +40,7 @@ PATCH /posts/{id}
 DELETE /posts/{id}
 
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
