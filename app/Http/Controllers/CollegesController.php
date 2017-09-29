@@ -9,6 +9,7 @@ class CollegesController extends Controller
 {
 
   public function __construct(){
+    $this->middleware('auth');
     //Definindo o caminho dos redirects
     $this->url = null;
     session()->put('url','universidades/');
