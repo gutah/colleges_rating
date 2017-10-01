@@ -12,7 +12,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Colleges Rank</title>
+    
+    <script type="text/javascript" src="{{asset('js/app.js')}}">
 
+    </script>
     <!-- THIS LINE -->
     {{--<script src="/js/popper.js"></script>--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/popper.min.js"></script>
