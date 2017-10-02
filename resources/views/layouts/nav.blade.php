@@ -20,8 +20,12 @@
     <ul class="nav navbar-nav navbar-right">
         <!-- Authentication Links -->
         @if (Auth::guest())
-            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Cadastra</a></li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-outline-primary btn-md" href="{{ route('login') }}">Entrar</a>
+            </li>&nbsp
+            <li class="nav-item">
+              <a class="nav-link btn btn-success btn-md" href="{{ route('register') }}">Cadastre-se</a>
+            </li>
         @else
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
