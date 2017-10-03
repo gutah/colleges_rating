@@ -27,25 +27,34 @@
               <a class="nav-link btn btn-success btn-md" href="{{ route('register') }}">Cadastre-se</a>
             </li>
         @else
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                    {{ Auth::user()->name }} <span class="caret"></span>
-                </a>
+          <div class="nav-item">
 
-                <ul class="dropdown-menu" role="menu">
-                    <li>
-                        <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </li>
-                </ul>
-            </li>
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-primary btn-md dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ Auth::user()->name }} <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu">
+                  {{--<a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>--}}
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                      Logout
+                  </a>
+                </div>
+              </div>
+
+              <ul class="dropdown-menu" role="menu">
+                  <li>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          {{ csrf_field() }}
+                      </form>
+                  </li>
+              </ul>
+              </div>
         @endif
     </ul>
 
