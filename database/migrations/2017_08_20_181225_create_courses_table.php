@@ -17,11 +17,17 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable('false');
             $table->text('description');
-            $table->integer('college_id');
             $table->string('slug');
             $table->softDeletes();
             $table->timestamps();
         });
+
+        Schema::create('college_course', function (Blueprint $table) {
+            $table->integer('college_id');
+            $table->integer('course_id');
+            $table->primary(['college_id','course_id']);
+        });
+
     }
 
     /**
@@ -32,5 +38,6 @@ class CreateCoursesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('courses');
+          Schema::dropIfExists('college_course');
     }
 }
