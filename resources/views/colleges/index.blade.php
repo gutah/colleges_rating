@@ -32,6 +32,31 @@
     </div>
   </div>
 
+{{--  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="{{$colleges->previousPageUrl()}}" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+
+
+          <li class="page-item"><a class="page-link" href="{{$colleges->links()}}">1</a></li>
+
+
+
+      <li class="page-item">
+        <a class="page-link" href="{{$colleges->nextPageUrl()}}" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>--}}
+  {{ $colleges->links('vendor.pagination.default') }}
+
+
   <hr>
   <div class="col col-12">
 

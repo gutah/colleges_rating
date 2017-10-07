@@ -19,7 +19,8 @@ class CollegesController extends Controller
 
   public function index(){
 
-    $colleges = College::all();
+    //$colleges = DB::table('colleges')->paginate(5);
+    $colleges = College::paginate(5);
     return view('colleges.index', compact('colleges'));
 
   }
