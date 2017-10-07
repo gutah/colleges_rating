@@ -8,6 +8,8 @@ use App\College;
 class CollegesController extends Controller
 {
 
+  protected $redirectTo = '/universidades';
+
   public function __construct(){
     $this->middleware('auth');
     //Definindo o caminho dos redirects
@@ -30,9 +32,10 @@ class CollegesController extends Controller
   }
 
   public function create(){
+
     $courses = Course::all();
-    //dd($courses);
     return view('colleges.create',compact('courses'));
+
   }
 
   public function store(){
@@ -69,10 +72,11 @@ class CollegesController extends Controller
     $college = College::find($id);
     $college->name = request('name');
     $college->description = request('description');
+    $college->type = request('type');
     $college->slug = College::setSlug($college->slug);
     $college->save();
 
-    return redirect($url);
+    return redirect('/universidades');
 
   }
 
