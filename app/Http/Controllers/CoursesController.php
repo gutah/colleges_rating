@@ -5,7 +5,6 @@ use App\Course;
 
 class CoursesController extends Controller
 {
-
   public function __construct(){
 
     $this->middleware('auth');
@@ -14,7 +13,7 @@ class CoursesController extends Controller
 
   public function index(){
 
-    $courses = Course::all();
+    $courses = Course::paginate(6);
     return view('courses.index', compact('courses'));
 
   }
@@ -78,7 +77,7 @@ class CoursesController extends Controller
   public function destroy($id){
 
     $course = Course::find($id);
-
+    $course->colleges()->detach();
     $course->delete();
     return redirect('/cursos');
 
