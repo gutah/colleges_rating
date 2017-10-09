@@ -31,7 +31,7 @@
       @endforeach
     </div>
   </div>
-
+  {{ $courses->links('vendor.pagination.default') }}
   <hr>
   <div class="col col-12">
 
