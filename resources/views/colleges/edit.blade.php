@@ -40,6 +40,24 @@
         </label>
       </div>
 
+      {{--Listagem de cursos--}}
+      <label for="course_id">Selecione os cursos que essa universidade possui</label>
+      @foreach ($courses as $course)
+        <div class="col-lg-4">
+        <div class="form-check">
+          <label for="{{$course->id}}" class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="course_id[]" id="{{$course->id}}" value="{{$course->id}}"
+            @foreach ($college->courses as $c)
+            @if ($c->id == $course->id)
+              checked
+            @endif
+            @endforeach>
+            {{$course->name}}
+          </label>
+        </div>
+      </div>
+      @endforeach
+    <hr>
     </div>
     <button type="submit" class="btn btn-success">Alterar</button>
     <a class="btn btn-outline-primary" href="/universidades">Voltar</a>
