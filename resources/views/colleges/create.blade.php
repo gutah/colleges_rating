@@ -32,15 +32,14 @@
       </div>
 
       {{--Listagem de cursos--}}
-      {{--
-      <div class="form-group">
-        <label class="form-control-label" for="college_id">Cursos</label>
-        <select class="" name="college_id">
-          @foreach ($courses as $course)
-            <option value="{{$course->id}}">{{$course->name}}</option>
-           @endforeach
-        </select>
-      </div>{{--End Listagem de curso--}}
+      <label for="course_id">Selecione os cursos que essa universidade possui</label>
+      <select multiple class="form-control" name="course_id[]" id="course_id">
+        @foreach ($courses as $course)
+          <option value="{{$course->id}}">{{$course->name}}</option>
+         @endforeach
+
+      </select>
+      {{--End Listagem de curso--}}
 
     </div>
     <hr>
