@@ -19,8 +19,7 @@ class CollegesController extends Controller
 
   public function index(){
 
-    //$colleges = DB::table('colleges')->paginate(5);
-    $colleges = College::paginate(5);
+    $colleges = College::paginate(6);
     return view('colleges.index', compact('colleges'));
 
   }
@@ -47,38 +46,36 @@ class CollegesController extends Controller
       'type'=>'required'
     ]);
 
-    College::create([
+    $college = College::create([
       'name' => request('name'),
       'description' => request('description'),
       'type' => request('type'),
       'slug' => College::setSlug(request('name'))
-
     ]);
 
-    return redirect(session()->get('url'));
+    $college->courses()->attach(request('course_id'));
 
+    return redirect('/universidades');
   }
 
-  public function edit(College $college)
-  {
-      $college = College::find($college->id);
+  public function edit(College $college) {
 
-      //dd($college);
-      return view("colleges.edit")->with('college', $college);
+    $courses = Course::all();
+    $college = College::find($college->id);
+    return view("colleges.edit",compact('college','courses'));
   }
 
   public function update($id)
   {
-
     $college = College::find($id);
     $college->name = request('name');
     $college->description = request('description');
     $college->type = request('type');
     $college->slug = College::setSlug($college->slug);
+    $college->courses()->sync(request('course_id'));
     $college->save();
 
     return redirect('/universidades');
-
   }
 
   public function delete(College $college)
@@ -90,9 +87,9 @@ class CollegesController extends Controller
   public function destroy($id){
 
     $college = College::find($id);
-
+    $college->courses()->detach();
     $college->delete();
-    return redirect(session()->get('url'));
+    return redirect('/universidades');
 
   }
 }
