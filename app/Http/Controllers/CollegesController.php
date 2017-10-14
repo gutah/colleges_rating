@@ -8,19 +8,16 @@ use App\College;
 class CollegesController extends Controller
 {
 
-  protected $redirectTo = '/universidades';
+  protected $redirectTo = '/home';
 
   public function __construct(){
     $this->middleware('auth');
-    //Definindo o caminho dos redirects
-    $this->url = null;
-    session()->put('url','universidades/');
   }
 
   public function index(){
 
-    $colleges = College::paginate(6);
-    return view('colleges.index', compact('colleges'));
+    $response = College::paginate(6);
+    return view('colleges.index', compact('response'));
 
   }
 
@@ -53,9 +50,8 @@ class CollegesController extends Controller
       'slug' => College::setSlug(request('name'))
     ]);
 
-    $college->courses()->attach(request('course_id'));
+    return $college->courses()->attach(request('course_id'));
 
-    return redirect('/universidades');
   }
 
   public function edit(College $college) {
