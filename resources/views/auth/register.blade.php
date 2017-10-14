@@ -1,5 +1,7 @@
 @extends('layouts.master')
+<script type="text/javascript">
 
+</script>
 @section('content')
 <div class="container">
     <div class="row">
@@ -33,6 +35,40 @@
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('college') ? ' has-error' : '' }}">
+                            <label for="universidade" class="col-md-4 control-label">Universidade</label>
+
+                            <div class="col-md-6">
+                                <select id="universidade" name="universidade" class="form-control">
+                                  @foreach ($colleges as $college)
+                                    <option value="{{$college->id}}">{{$college->name}}</option>
+                                  @endforeach
+                                </select>
+                                @if ($errors->has('college'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('college') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('course') ? ' has-error' : '' }}">
+                            <label for="curso" class="col-md-4 control-label">Curso</label>
+
+                            <div class="col-md-6">
+                                <select id="curso" name="curso" class="form-control">
+                                  @foreach ($courses as $course)
+                                    <option value="{{$course->id}}">{{$course->slug}}</option>
+                                  @endforeach
+                                </select>
+                                @if ($errors->has('course'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('course') }}</strong>
                                     </span>
                                 @endif
                             </div>

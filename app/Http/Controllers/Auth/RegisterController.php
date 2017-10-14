@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Course;
+use App\College;
 
 class RegisterController extends Controller
 {
@@ -68,4 +70,17 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+
+      $courses = Course::getCourse();
+      $colleges = College::all();
+
+
+      return view('auth.register')
+        ->with('colleges',$colleges)
+        ->with('courses',$courses);
+    }
+
 }
