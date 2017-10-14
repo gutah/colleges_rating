@@ -11,5 +11,12 @@ class Course extends Model
 
   }
 
+  public static function getCourse(){
+
+    $response = College::all();
+    return $response;
+
+  }
+
 
 }
