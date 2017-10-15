@@ -33,6 +33,7 @@ $factory->define(App\Course::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\College::class, function (Faker\Generator $faker) {
+
     $name = $faker->name;
     return [
       'name' => $name,
@@ -40,4 +41,5 @@ $factory->define(App\College::class, function (Faker\Generator $faker) {
       'type' =>rand(0,1),
       'slug' => App\College::setSlug($name)
     ];
+
 });
