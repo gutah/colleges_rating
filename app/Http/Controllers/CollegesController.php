@@ -15,7 +15,7 @@ class CollegesController extends Controller
   }
 
   public function index(){
-
+    //request()->user()->authorizeRoles(['admin']);
     $response = College::paginate(6);
     return view('colleges.index', compact('response'));
 
