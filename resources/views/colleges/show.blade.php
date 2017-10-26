@@ -46,7 +46,7 @@
 
     <div class="col col-12 text-right">
       <hr class="my-4">
-        @include('colleges.collegesBtn')
+        @includeIf('layouts.showFooterBtn',['response' => $college])
     </div>
 
 @endsection

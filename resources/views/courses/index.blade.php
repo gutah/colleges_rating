@@ -8,10 +8,6 @@
 
     @include('layouts.cards')
 
-    <hr>
-    <div class="col col-12">
-      <a href="/cursos/create" class="btn btn-outline-primary btn-lg float-right" role="button" aria-pressed="true">Adicionar</a>
-    </div>
 
   </div>
 @endsection

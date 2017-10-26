@@ -34,6 +34,13 @@
 
   {{$response->links()}}
 
+@if (request()->user()->authorizeRoles(['admin']))
+  <hr>
+  <div class="col col-12">
+    <a href="{{url()->current()}}/create" class="btn btn-outline-primary btn-lg float-right" role="button" aria-pressed="true">Adicionar</a>
+  </div>
+@endif
+
 </div>
 
 
