@@ -11,5 +11,11 @@ class College extends Model
     return $this->belongsToMany(Course::class);
   }
 
+  public function users(){
+    return $this
+      ->belogsToMany(User::class)
+      ->withTimestamps();
+  }
+
 
 }
