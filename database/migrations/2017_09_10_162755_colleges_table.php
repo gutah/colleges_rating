@@ -19,6 +19,11 @@ class CollegesTable extends Migration
             $table->text('description');
             $table->boolean('type')->default(0);
             $table->string('slug');
+            $table->string('sigla')->nullable(true);
+            $table->string('city');
+            $table->string('state');
+            $table->string('address');
+            $table->string('phone');
             $table->softDeletes();
             $table->timestamps();
         });
