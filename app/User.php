@@ -33,6 +33,12 @@ class User extends Authenticatable
         ->withTimestamps();
     }
 
+  public function colleges(){
+    return $this
+      ->belongsToMany(College::class)
+      ->withTimestamps();
+  }
+
   public function authorizeRoles($roles)
   {
     if ($this->hasAnyRole($roles)) {
@@ -61,6 +67,15 @@ class User extends Authenticatable
       return true;
     }
     return false;
+  }
+
+  public function isAdmin($role = 'admin'){
+    if($this->authorizeRoles($role) == false){
+      abort(401, 'Você não possui permissão para realizar essa ação');
+    }else{
+      return  true;
+    }
+
   }
 
 }
