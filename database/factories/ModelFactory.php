@@ -34,12 +34,16 @@ $factory->define(App\Course::class, function (Faker\Generator $faker) {
 
 $factory->define(App\College::class, function (Faker\Generator $faker) {
 
-    $name = $faker->name;
+    $name = $faker->company;
     return [
       'name' => $name,
       'description' => $faker->text(),
       'type' =>rand(0,1),
-      'slug' => App\College::setSlug($name)
+      'slug' => App\College::setSlug($name),
+      'city' => $faker->city,
+      'state'=> $faker->state,
+      'address' => $faker->address,
+      'phone' => $faker->e164PhoneNumber
     ];
 
 });
