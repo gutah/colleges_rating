@@ -21,12 +21,17 @@ class CollegeTableSeeder extends Seeder
       $a=0;
       //factory(App\College::class, 20)->create();
       for ($i=0; $i <= 20; $i++) {
-        $name = $faker->name;
+        $name = $faker->company;
         $uni = $college[$i] = App\College::create([
           'name' => $name,
           'description' => $faker->text(),
           'type' =>rand(0,1),
-          'slug' => App\College::setSlug($name)
+          'slug' => App\College::setSlug($name),
+          'city' => $faker->city,
+          'state'=> $faker->state,
+          'address' => $faker->address,
+          'phone' => $faker->e164PhoneNumber
+
         ]);
 
         for ($c=0; $c < 5; $c++) {

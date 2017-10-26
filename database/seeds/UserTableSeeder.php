@@ -20,17 +20,20 @@ class UserTableSeeder extends Seeder
         'name' => 'Admin',
         'email' => 'admin@outlook.com',
         'password' => bcrypt('secret'),
-        'role' => $admin_role->id
+        'role' => $admin_role->id,
+        'college_id' => random_int(1,15)
       ]);
-    $admin->roles()->attach($admin_role->id);
+      $admin->colleges()->attach($admin->college_id);
+      $admin->roles()->attach($admin_role->id);
 
     $user = User::create([
           'name' => 'User',
           'email' => 'user@outlook.com',
           'password' => bcrypt('secret'),
-          'role' => $user_role->id
+          'role' => $user_role->id,
+          'college_id' => random_int(1,15)
     ]);
-
+    $user->colleges()->attach($user->college_id);
     $user->roles()->attach($user_role->id);
 
   }
