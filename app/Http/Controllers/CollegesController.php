@@ -15,7 +15,7 @@ class CollegesController extends Controller
   }
 
   public function index(){
-    //request()->user()->authorizeRoles(['admin']);
+
     $response = College::paginate(6);
     return view('colleges.index', compact('response'));
 
@@ -29,14 +29,14 @@ class CollegesController extends Controller
   }
 
   public function create(){
-
+    request()->user()->isAdmin();
     $courses = Course::all();
     return view('colleges.create',compact('courses'));
 
   }
 
   public function store(){
-
+    request()->user()->isAdmin();
     $this->validate(request(), [
       'name'=>'required',
       'description'=>'required',
@@ -55,7 +55,7 @@ class CollegesController extends Controller
   }
 
   public function edit(College $college) {
-
+    request()->user()->isAdmin();
     $courses = Course::all();
     $college = College::find($college->id);
     return view("colleges.edit",compact('college','courses'));
@@ -63,6 +63,7 @@ class CollegesController extends Controller
 
   public function update($id)
   {
+    request()->user()->isAdmin();
     $college = College::find($id);
     $college->name = request('name');
     $college->description = request('description');
@@ -76,12 +77,13 @@ class CollegesController extends Controller
 
   public function delete(College $college)
   {
+    request()->user()->isAdmin();
     $college = College::find($college->id);
     return view('colleges.delete',compact('college'));
   }
 
   public function destroy($id){
-
+    request()->user()->isAdmin();
     $college = College::find($id);
     $college->courses()->detach();
     $college->delete();
