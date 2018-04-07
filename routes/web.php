@@ -32,6 +32,8 @@ Route::get('/universidades/{college}/edit', 'CollegesController@edit');
 //Modulo de usários
 Route::get('/users', function() {return "Página de Usuários";});
 
+Route::get('/avalia', function(){return view('review.create');});
+
 
 /*
 GET /posts

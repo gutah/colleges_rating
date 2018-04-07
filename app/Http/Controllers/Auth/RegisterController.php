@@ -64,17 +64,22 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $user_role = \App\Role::where('name','user')->first();
+    
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'course_id' => $data['curso'],
             'college_id' => $data['universidade'],
             'password' => bcrypt($data['password']),
+
         ]);
 
         $user
           ->roles()
-          ->attach(Role::where('name','user')->first());
+          ->attach($user_role->id);
+
+          return $user;
     }
 
     public function showRegistrationForm()

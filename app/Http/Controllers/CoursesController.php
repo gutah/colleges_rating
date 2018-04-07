@@ -26,11 +26,12 @@ class CoursesController extends Controller
   }
 
   public function create(){
+    request()->user()->isAdmin();
     return view('courses.create');
   }
 
   public function store(){
-
+    request()->user()->isAdmin();
     $this->validate(request(), [
       'name'=>'required',
       'description'=>'required'
@@ -49,15 +50,14 @@ class CoursesController extends Controller
 
   public function edit(Course $course)
   {
-      $course = Course::find($course->id);
-
-      //dd($course);
-      return view("courses.edit")->with('course', $course);
+    request()->user()->isAdmin();
+    $course = Course::find($course->id);
+    return view("courses.edit")->with('course', $course);
   }
 
   public function update($id)
   {
-
+    request()->user()->isAdmin();
     $course = Course::find($id);
     $course->name = request('name');
     $course->description = request('description');
@@ -70,17 +70,17 @@ class CoursesController extends Controller
 
   public function delete(Course $course)
   {
+    request()->user()->isAdmin();
     $course = Course::find($course->id);
     return view('courses.delete',compact('course'));
   }
 
   public function destroy($id){
-
+    request()->user()->isAdmin();
     $course = Course::find($id);
     $course->colleges()->detach();
     $course->delete();
     return redirect('/cursos');
-
   }
 
 }
